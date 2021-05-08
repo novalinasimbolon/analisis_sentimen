@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% block page_content %}
+{% load static%}
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion"" id="accordionSidebar">
+
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fab fa-twitter"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">Analyze.</div>
+        </a>
+
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
+
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">
+                <i class="fas fa-fw fa-home"></i>
+                <span>Beranda</span></a>
+        </li>
+
+        <li class="nav-item active">
+            <a class="nav-link" href="{% url 'data' %}">
+                <i class="fas fa-fw fa-database"></i>
+                <span>Data</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'proses' %}">
+                <i class="fas fa-fw fa-spinner"></i>
+                <span>Preproses</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fab fa-fw fa-cloudsmith"></i>
+                <span>Analisis</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fas fa-fw fa-file"></i>
+                <span>Uji Data Realtime</span></a>
+        </li>
+
+        <!-- <li class="nav-item">
+            <a class="nav-link" href="akurasi.html">
+                <i class="fas fa-fw fa-percentage"></i>
+                <span>Akurasi</span></a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="ujidata.html">
+                <i class="fas fa-fw fa-align-center"></i>
+                <span>Uji Data</span></a>
+        </li> -->
+
+    </ul>
+    <!-- End of Sidebar -->
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+    
+                <!-- Main Content -->
+                <div id="content">
+    
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+    
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                            <i class="fa fa-bars"></i>
+                        </button>
+    
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+    
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Sonia Elisa</span>
+                                    <i class="fas fa-smile rotate-n-15"></i>
+                            </li>
+    
+                        </ul>
+    
+                    </nav>
+                    <!-- End of Topbar -->
+
+                </div>
+<!-- End of Page Wrapper -->
+
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Data</h1>
+                </div>
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+            <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Keseluruhan Data</h6>
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Tweet</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in result%}
+                <tr>
+                    <td>{{row.2}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+            </div>
+            </div>
+            </div>
+
+            <!-- /.container-fluid -->
+
+            </div>
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy;2021</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+{% endblock %}
