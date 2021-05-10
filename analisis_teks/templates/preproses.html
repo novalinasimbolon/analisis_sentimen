@@ -6,7 +6,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion"" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'home' %}">
@@ -39,7 +39,7 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{% url 'analisis' %}">
                 <i class="fab fa-fw fa-cloudsmith"></i>
                 <span>Analisis</span></a>
         </li>
@@ -124,11 +124,13 @@
                 <tr class="odd gradeX">
                     <td>{{row.1}}</td>
                     <td>{{row.2}}</td>
-                        {% if row.3 == '0' %}
-                        <td>Negatif</td>
-                        {% else %}
-                        <td>Positif</td>
-                        {% endif %}
+                    {% if row.3 == '-1' %}
+                    <td>Negatif</td>
+                    {% elif row.3 == '0' %}
+                    <td>Netral</td>
+                    {% else %}
+                    <td>Positif</td>
+                    {% endif %}
                 </tr>
                 {% endfor %}
             </tbody>

@@ -20,7 +20,7 @@
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item">
             <a class="nav-link" href="{% url 'home' %}">
                 <i class="fas fa-fw fa-home"></i>
                 <span>Beranda</span></a>
@@ -38,7 +38,7 @@
                 <span>Preproses</span></a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item active">
             <a class="nav-link" href="{% url 'analisis' %}">
                 <i class="fab fa-fw fa-cloudsmith"></i>
                 <span>Analisis</span></a>
@@ -97,32 +97,59 @@
 
                 </div>
 <!-- End of Page Wrapper -->
-    
-                <!-- Begin Page Content -->
-<div class="container-fluid">
-    <!-- Page Heading -->
-    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Beranda</h1>
-    </div> -->
 
-
-    <!-- Content Row -->
-    <div class="row">
-            <!-- Approach -->
-            <div class="card shadow col-lg-12 mb-4">
-                <div class="card-body">
-                    <center><h3 class="card-title">ANALISIS SENTIMEN TERHADAP MASKAPAI PENERBANGAN DI INDONESIA MELALUI MEDIA SOSIAL TWITTER MENGGUNAKAN ALGORITMA MULTINOMIAL NAIVE BAYES DAN EKSTRAKSI FITUR N-GRAM</h3></center>
-                    <center><img src="{% static 'img/logo-usu.png'%}" width="400px" height="400px" alt="image"></center>
-                    <center><h5 class="card-title">Sonia Elisa Telaumbanua</h5></center>
-                    <center><h5 class="card-title">161402045</h5></center>
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                    <h1 class="h3 mb-0 text-gray-800">Analisis</h1>
                 </div>
+
+            <!-- DataTales Example -->
+            <div class="card shadow mb-4">
+            <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Analisis Sentimen</h6>
+            </div>
+            <div class="card-body">
+            <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Tweet</th>
+                    <th>Preproses</th>
+                    <th>Sentimen Manual</th>
+                    <th>Sentimen MNB</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in result%}
+                <tr class="odd gradeX">
+                    <td>{{row.0}}</td>
+                    <td>{{row.1}}</td>
+                    {% if row.2 == '-1' %}
+                    <td>Negatif</td>
+                    {% elif row.2 == '0' %}
+                    <td>Netral</td>
+                    {% else %}
+                    <td>Positif</td>
+                    {% endif %}
+                    {% if row.3 == '-1' %}
+                    <td>Negatif</td>
+                    {% elif row.3 == '0' %}
+                    <td>Netral</td>
+                    {% else %}
+                    <td>Positif</td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+            </div>
+            </div>
             </div>
 
-        
-    </div>
+            <!-- /.container-fluid -->
 
-</div>
-<!-- /.container-fluid -->
+            </div>
 
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
